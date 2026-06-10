@@ -57,7 +57,7 @@
     "@polymarket/real-time-data-client": "^1.4.0",
     "@types/ws": "^8.18.1",
     "bottleneck": "^2.19.5",
-    "dotenv": "^17.2.3",
+    "dotenv": "^17.4.2",
     "ethers": "5",
     "isomorphic-ws": "^5.0.0",
     "ws": "^8.18.3"
