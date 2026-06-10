@@ -14,7 +14,8 @@
     }
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && cd dashboard && yarn install && yarn build",
+    "start": "concurrently \"npx tsx bot-with-dashboard.ts\" \"cd dashboard && npx vite --port 3001 --host\"",
     "prepublishOnly": "pnpm run build",
     "dev": "tsc --watch",
     "test": "vitest run",
@@ -57,6 +58,7 @@
     "@polymarket/real-time-data-client": "^1.4.0",
     "@types/ws": "^8.18.1",
     "bottleneck": "^2.19.5",
+    "concurrently": "^10.0.3",
     "dotenv": "^17.4.2",
     "ethers": "5",
     "isomorphic-ws": "^5.0.0",
