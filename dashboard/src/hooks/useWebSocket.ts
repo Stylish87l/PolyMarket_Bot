@@ -6,10 +6,15 @@ interface WebSocketMessage {
   payload: unknown;
 }
 
+// Dynamically handle secure wss vs insecure ws depending on HTTPS presence
+const isSecure = window.location.protocol === 'https:';
+const protocol = isSecure ? 'wss:' : 'ws:';
+
 // Connect to same host:port when served by bot, or port 3001 for dev
 const WS_URL = window.location.port === '5173'
-  ? `ws://${window.location.hostname}:3001`
-  : `ws://${window.location.host}`;
+  ? `${protocol}//${window.location.hostname}:3001`
+  : `${protocol}//${window.location.host}`;
+
 const MAX_LOGS = 200;
 
 export function useWebSocket() {
