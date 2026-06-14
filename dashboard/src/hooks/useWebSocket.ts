@@ -10,10 +10,10 @@ interface WebSocketMessage {
 const isSecure = window.location.protocol === 'https:';
 const protocol = isSecure ? 'wss:' : 'ws:';
 
-// Connect to same host:port when served by bot, or port 3001 for dev
+// Connect to same host:port/ws when served by bot, or port 3001 for local dev
 const WS_URL = window.location.port === '5173'
-  ? `${protocol}//${window.location.hostname}:3001`
-  : `${protocol}//${window.location.host}`;
+  ? `${protocol}//${window.location.hostname}:3001/ws`
+  : `${protocol}//${protocol === 'wss:' ? '' : ''}${window.location.host}/ws`;
 
 const MAX_LOGS = 200;
 

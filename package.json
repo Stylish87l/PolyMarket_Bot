@@ -15,7 +15,7 @@
   },
   "scripts": {
     "build": "tsc && cd dashboard && yarn install && yarn build",
-    "start": "concurrently \"npx tsx bot-with-dashboard.ts\" \"cd dashboard && npx vite --port 3001 --host\"",
+    "start": "npx tsx bot-with-dashboard.ts",
     "prepublishOnly": "pnpm run build",
     "dev": "tsc --watch",
     "test": "vitest run",

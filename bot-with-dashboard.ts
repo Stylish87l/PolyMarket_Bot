@@ -1010,9 +1010,12 @@ async function main() {
   console.log('║          POLYMARKET BOT v3.0 + DASHBOARD                           ║');
   console.log('╚════════════════════════════════════════════════════════════════════╝\n');
 
-  // Start Dashboard Server
-  startDashboard(3001);
-  console.log('\n🌐 Dashboard: http://localhost:3001\n');
+ // Dynamically use Railway's assigned port, or fall back to 3001 for local development
+  const runningPort = process.env.PORT ? parseInt(process.env.PORT, 10) : 3001;
+  
+  // Start Dashboard Server with the dynamic port
+  startDashboard(runningPort);
+  console.log(`\n🌐 Dashboard Server listening on port: ${runningPort}\n`);
 
   if (!process.env.POLYMARKET_PRIVATE_KEY) {
     log('ERROR', 'POLYMARKET_PRIVATE_KEY not found');
